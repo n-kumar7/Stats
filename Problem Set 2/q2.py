@@ -22,10 +22,12 @@ months = 240  # 20 years
 # Convert percentage returns to decimal and compute cumulative return over 240 months
 cumulative_return_95_lower = (1 + ci_95_lower / 100) ** months
 cumulative_return_95_upper = (1 + ci_95_upper / 100) ** months
+cumulative_return_mean = (1 + mean_return / 100) ** months
 
 # Compute final account values
 final_value_95_lower = initial_investment * cumulative_return_95_lower
 final_value_95_upper = initial_investment * cumulative_return_95_upper
+final_value_95_mean = initial_investment * cumulative_return_mean
 
 # Display results
 print("Basic Stats:")
@@ -39,3 +41,4 @@ print()
 print("95% Confidence Interval for Final Investment Value (after 20 years):")
 print(f"Lower Bound: ${final_value_95_lower:,.2f}")
 print(f"Upper Bound: ${final_value_95_upper:,.2f}")
+print(f"mean based return : ${final_value_95_mean:,.2f}")
